@@ -13,7 +13,7 @@ class Login extends Component {
     };
   }
 
-  handleChange = ({ target: { value } }) => {
+  activateButton = ({ target: { value } }) => {
     const minimumChars = 3;
     this.setState({
       disabled: value.length < minimumChars,
@@ -43,7 +43,7 @@ class Login extends Component {
               type="text"
               id="name-input"
               data-testid="login-name-input"
-              onChange={ this.handleChange }
+              onChange={ this.activateButton }
             />
           </label>
           <button
