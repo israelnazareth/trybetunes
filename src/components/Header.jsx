@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import Loading from '../pages/Loading';
 import { getUser } from '../services/userAPI';
+import Loading from '../pages/Loading';
 
 class Header extends Component {
   constructor(props) {
@@ -33,9 +33,9 @@ class Header extends Component {
         <h2 data-testid="header-user-name">
           { loading ? <Loading /> : `Olá, ${userName}!` }
         </h2>
-        <Link to="/search" data-testid="link-to-search">Search</Link>
-        <Link to="/favorites" data-testid="link-to-favorites">Favorites</Link>
-        <Link to="/profile" data-testid="link-to-profile">Profile</Link>
+        <Link to="/search" data-testid="link-to-search"><p>Search</p></Link>
+        <Link to="/favorites" data-testid="link-to-favorites"><p>Favorites</p></Link>
+        <Link to="/profile" data-testid="link-to-profile"><p>Profile</p></Link>
       </header>
     );
   }
