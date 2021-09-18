@@ -31,7 +31,7 @@ class Header extends Component {
       <header data-testid="header-component">
         <h1>TrybeTunes</h1>
         <h2 data-testid="header-user-name">
-          { loading ? <Loading /> : `Olá, ${userName}!` }
+          { loading ? <Loading /> : userName }
         </h2>
         <Link to="/search" data-testid="link-to-search"><p>Search</p></Link>
         <Link to="/favorites" data-testid="link-to-favorites"><p>Favorites</p></Link>
