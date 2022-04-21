@@ -21,6 +21,8 @@ Neste projeto fomos capazes de:
 
 ---
 
+https://user-images.githubusercontent.com/85763987/164358551-d25c8d2b-4998-4f56-a1d9-c623c63dee85.mp4
+
 ## O que foi desenvolvido:
 
 Neste projeto criamos o TrybeTunes, uma aplicação capaz de reproduzir músicas das mais variadas bandas e artistas, criar uma lista de músicas favoritas e editar o perfil da pessoa usuária logada. Essa aplicação será capaz de:
