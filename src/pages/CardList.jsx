@@ -7,7 +7,7 @@ class CardList extends Component {
   render() {
     const { albums } = this.props;
     return (
-      <span>
+      <span className='card-list'>
         {albums.length === 0 ? <NotFound />
           : albums.map((item) => <Card album={ item } key={ item.collectionId } />) }
       </span>

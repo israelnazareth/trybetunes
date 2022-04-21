@@ -17,10 +17,16 @@ class Search extends Component {
     };
   }
 
-  activateButton = ({ target: { value } }) => {
-    this.setState({ value });
+  pressEnterToSearch = (event) => {
+    if (event.key === 'Enter') {
+      this.searchButton();
+    }
   }
 
+  inputSearchValue = ({ target: { value }}) => {
+    this.setState({ value });
+  }
+  
   searchButton = async () => {
     const { value } = this.state;
     this.setState({ loading: true });
@@ -54,7 +60,8 @@ class Search extends Component {
           type="text"
           placeholder="Nome do Artista"
           data-testid="search-artist-input"
-          onChange={ this.activateButton }
+          onChange={ this.inputSearchValue }
+          onKeyDown={ this.pressEnterToSearch }
         />
         <button
           disabled={ value.length < 2 }
@@ -70,9 +77,13 @@ class Search extends Component {
     return (
       <main data-testid="page-search">
         <Header />
-        <p>Pesquise pelo artista</p>
-        { loading ? <Loading /> : form }
-        { artistFound ? resultOfArtist : '' }
+        <div className="div-search">
+          <p>Pesquise pelo artista:</p>
+          { loading ? <Loading /> : form }
+        </div>
+        <div className="result-text">
+          { artistFound ? resultOfArtist : '' }
+        </div>
         { artistFound ? <CardList albums={ [...arrayOfAlbums] } /> : '' }
       </main>
     );

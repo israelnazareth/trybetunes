@@ -34,7 +34,7 @@ class Login extends Component {
   render() {
     const { onLoad, disabled } = this.state;
     return (
-      <main data-testid="page-login">
+      <main data-testid="page-login" className='page-login'>
         <p>Login</p>
         <form>
           <label htmlFor="name-input">

@@ -11,7 +11,7 @@ class Card extends React.Component {
       collectionId,
     } } = this.props;
     return (
-      <div>
+      <div className='card'>
         <img src={ artworkUrl100 } alt={ `Album art ${collectionName}` } />
         <h4>{ collectionName }</h4>
         <p>{ artistName }</p>

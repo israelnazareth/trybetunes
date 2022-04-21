@@ -33,13 +33,19 @@ class Album extends Component {
     return (
       <div data-testid="page-album">
         <Header />
-        <section>
-          <h1 data-testid="album-name">{ albumName }</h1>
-          <img src={ albumImage } alt={ `Album: ${albumName}` } />
-          <h3 data-testid="artist-name">{ artistName }</h3>
+        <section className='page-album'>
+          <aside className='album-data'>
+            <h1 data-testid="album-name">{ albumName }</h1>
+            <img src={ albumImage } alt={ `Album: ${albumName}` } />
+            <h3 data-testid="artist-name">{ artistName }</h3>
+          </aside>
+          <aside className='music-list'>
+            <ul>
+              { arrayOfMusic.slice(1)
+                .map((music, index) => <MusicCard musicsFromURL={ music } key={ index } />) }
+            </ul>
+          </aside>
         </section>
-        { arrayOfMusic.slice(1)
-          .map((music, index) => <MusicCard musicsFromURL={ music } key={ index } />) }
       </div>
     );
   }

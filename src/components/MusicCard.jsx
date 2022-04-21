@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong, removeSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs, removeSong } from '../services/favoriteSongsAPI';
 import Loading from '../pages/Loading';
 
 class MusicCard extends Component {
@@ -11,6 +11,13 @@ class MusicCard extends Component {
       loading: false,
       checked: false,
     };
+
+    this.handleChange = this.handleChange.bind(this);
+    this.fetchFavoriteSongs = this.fetchFavoriteSongs.bind(this);
+  }
+
+  componentDidMount() {
+    this.fetchFavoriteSongs();
   }
 
   handleChange = async ({ target: { id, checked } }) => {
@@ -32,30 +39,42 @@ class MusicCard extends Component {
     }
   }
 
+  fetchFavoriteSongs = async () => {
+    const { musicsFromURL: { trackId } } = this.props;
+    const response = await getFavoriteSongs();
+    const songId = response.some(song => song.trackId === trackId);
+    if (songId) {
+      this.setState({
+        checked: true,
+      });
+    };
+  }
+
   render() {
     const { musicsFromURL: { previewUrl, trackName, trackId } } = this.props;
     const { loading, checked } = this.state;
-    const sectionPage = (
-      <section>
-        <p>{ trackName }</p>
-        <audio data-testid="audio-component" src={ previewUrl } controls>
+    const sectionPage = (<>
+      <p>{trackName}</p>
+      <section className='track-data'>
+        <audio data-testid="audio-component" src={previewUrl} controls>
           <track kind="captions" />
           O seu navegador não suporta o elemento
           <code>audio</code>
         </audio>
         <label
-          htmlFor={ trackId }
-          data-testid={ `checkbox-music-${trackId}` }
+          htmlFor={trackId}
+          data-testid={`checkbox-music-${trackId}`}
         >
-          Favorita
+          Favoritar
           <input
             type="checkbox"
-            id={ trackId }
-            checked={ checked }
-            onChange={ this.handleChange }
+            id={trackId}
+            checked={checked}
+            onChange={this.handleChange}
           />
         </label>
       </section>
+    </>
     );
 
     return (
