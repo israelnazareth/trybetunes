@@ -1,5 +1,7 @@
 # Projeto TrybeTunes!
 
+https://user-images.githubusercontent.com/85763987/164358551-d25c8d2b-4998-4f56-a1d9-c623c63dee85.mp4
+
 ## Habilidades:
 Neste projeto fomos capazes de:
 
@@ -22,8 +24,6 @@ Neste projeto fomos capazes de:
   * Link da aplicação: https://your-trybetunes.vercel.app/
 
 ---
-
-https://user-images.githubusercontent.com/85763987/164358551-d25c8d2b-4998-4f56-a1d9-c623c63dee85.mp4
 
 ## O que foi desenvolvido:
 
